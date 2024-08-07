@@ -49,12 +49,6 @@ public:
 
 
 
-        // string pre = recur(num, ones, tens, scale, scaleV + 1);
-        // // cout << pre;
-
-        // if(pre == "") return res + " " + scale[scaleV];
-        // return pre + " " + scale[scaleV] + " " + res;
-        // return res;
     }
 
 
