@@ -1,4 +1,3 @@
-
 class Solution {
 public:
 
@@ -33,29 +32,27 @@ public:
 
         if(ten != 1 && ten != 0){
             // cout<< ten<< " one: " <<one;
-            lastTwoString = tens[ten] + " " + ones[one];
+            lastTwoString = one == 0 ? tens[ten] : tens[ten] + " " + ones[one];
         } else {
             lastTwoString = ones[lastTwo];
         }
 
-        res = (hunString == "") ? (lastTwoString) : (hunString + " " + lastTwoString);
+        res = (hunString == "") ? (lastTwoString) : (lastTwoString == "" ? hunString : hunString + " " + lastTwoString);
         // cout<< lastThree << "   hun: " << hunString << " last " << lastTwoString;
 
         num/=1000;
 
-        string withScale = scaleV == 0 ? res : res + " " + scale[scaleV];
+        string withScale = scaleV == 0 ? res : (res == "" ? res : res + " " + scale[scaleV]);
         string pre = recur(num, ones, tens, scale, scaleV + 1);
-        return pre != "" ? pre + " " + withScale : withScale;
-
-
-
+        return pre != "" ? (withScale == "" ? pre : pre + " " + withScale) : withScale;
     }
 
 
     string numberToWords(int num) {
-        vector<string> ones = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Ninteen"};
-        vector<string> tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninty"};
-        vector<string> scale = {"", "Thousand", "Million", "Billion", "Trillion", "quadrillion" };
+        if(num == 0) return "Zero";
+        vector<string> ones = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+        vector<string> tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+        vector<string> scale = {"", "Thousand", "Million", "Billion", "Trillion" };
 
         string res = recur(num, ones, tens, scale, 0);
 
