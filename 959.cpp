@@ -71,6 +71,14 @@ public:
             }
         }
 
+        // representation of matrix in 0s and 1s. 
+        for(int i=0; i<15; i++){
+            for(int j=0; j<15; j++){
+                cout<<b[i][j] << " ";
+            }
+            cout << "\n";
+        }
+
         return n==30 ? countRegions(b) : countRegions(b) - 1;
     }
 };
