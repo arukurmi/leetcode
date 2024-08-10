@@ -8,7 +8,7 @@ public:
 
     vector<vector<int>> dir = {{0,1}, {1,0}, {-1,0}, {0,-1}};
 
-    void recur(vector<vector<int>> b, vector<vector<int>> &vis, int n, int i, int j){
+    void recur(vector<vector<int>>& b, vector<vector<int>> &vis, int n, int i, int j){
         vis[i][j] = 1;
         for(int k=0; k<4; k++){
             int xs = i+dir[k][0];
@@ -20,7 +20,7 @@ public:
         return;
     }
 
-    int countRegions(vector<vector<int>> b){
+    int countRegions(vector<vector<int>> &b){
         int res = 0;
         int n = b.size();
 
@@ -71,15 +71,6 @@ public:
             }
         }
 
-        // representation of matrix in 0s and 1s. 
-        for(int i=0; i<15; i++){
-            for(int j=0; j<15; j++){
-                cout<<b[i][j] << " ";
-            }
-            cout << "\n";
-        }
-
         return n==30 ? countRegions(b) : countRegions(b) - 1;
     }
 };
-
