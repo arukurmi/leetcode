@@ -1,5 +1,9 @@
-// 1568
+// 1568. Minimum Number of Days to Disconnect Island
+// https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island/
 
+// took long to understand the gist but yeah then it is very easy. did brute force only and it worked!
+// It was still leading to TLE but that is because of memory problem only. you can refactor and try it will run
+// the accepted code with same logiv is given in comments below!
 
 class Solution {
 public:
